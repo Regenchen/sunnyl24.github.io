@@ -1,0 +1,44 @@
+---
+title: "Learn more about Sunny Lee"
+author: "Sunny Lee"
+ email: snylee@uchicago.edu
+  affiliations:
+- name: University of Chicago
+  department: Comparative Human Development 
+  address: 1101 E 58th St
+  city: Chicago
+  region: IL
+  postal-code: 60637
+format:
+  html:
+    theme: flatly
+    toc: true
+    number-sections: true
+  apaquarto-html: default
+  apaquarto-pdf: default
+editor: visual
+---
+
+# Introduction
+
+Welcome to my website. This site documents my life as a college student at UChicago. This is the most authentic and only chance you will get to learn about the real side of me. Get excited!
+
+# Table of Contents 
+
+## 1. Childhood
+
+Not invited to analyze my childhood Freudian style, but it helps to understand what kind of person I am. 
+
+## 2. Family and friends 
+
+As a huge extrovert, family and friends are an important part of my life. People listed on here are my rock and the source of energy in my life, so...it's a pretty important section. 
+
+## 3. Student Sunny 
+
+I love school. Not that I'm a nerd. Does that make me a nerd? Perhaps. But intellectual stimulation is a core part of my life. It keeps me going. As Bill Gates once said, "I don't want my brain to stop working." Gates and I have this in common. My greatest fear is not being able to think. In true Descartes spirit, I think, therefore I exist or *cogito ergo sum*. 
+
+## 4. Other passions and quirks
+
+Yogi, foodie, #trackstar, dog mom, neat freak, and more
+
+
