@@ -83,7 +83,7 @@ Below each learning objective is a list of general expectations for meeting that
     2.  Relies on document revisions rather than manually created new versions
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 

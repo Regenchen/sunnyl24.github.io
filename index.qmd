@@ -48,7 +48,13 @@ For example, my research passion is the **social determinants of health**. I mad
 ```{r}
 #|label: Sourcing R script that has data 
 
-source("")
+source("Data Wrangling.R")
+```
+
+```{r}
+#|label: Summary statistics
+
+
 
 ```
 

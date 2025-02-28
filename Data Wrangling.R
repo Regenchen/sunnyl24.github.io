@@ -651,6 +651,6 @@ h233_categorized
 
 #Change variable name to something more intuitive 
 h233_categorized <- h233_categorized %>%
-  rename(new_column_name = old_column_name)
+  rename(Perceived_Mental_Health = MNHLTH31)
 
 
