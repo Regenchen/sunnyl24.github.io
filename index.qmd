@@ -24,19 +24,19 @@ As a huge extrovert, family and friends are an important part of my life. People
 
 ```{r, echo=FALSE, fig.cap="My parents and I at grad"}
 #|label: My parents
-knitr::include_graphics("images:/momanddad.jpg")
+knitr::include_graphics("images/momanddad.jpg")
 ```
 
 ```{r,echo=FALSE, fig.cap="My brother Ray and I at our favorite boba places in Irvine"}
-knitr::include_graphics("images:/Ray.jpg")
+knitr::include_graphics("images/Ray.jpg")
 ```
 
 ```{r, echo=FALSE, fig.cap="High school senior trip with my best friends"}
-knitr::include_graphics("images:/highschoolfriends.jpeg")
+knitr::include_graphics("images/highschoolfriends.jpeg")
 ```
 
 ```{r, echo=FALSE, fig.cap="My friends and I at the MODA fashion show"}
-knitr::include_graphics("images:/MODAfashionshow.jpeg")
+knitr::include_graphics("images/MODAfashionshow.jpeg")
 ```
 
 # Student Sunny
