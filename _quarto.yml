@@ -1,0 +1,7 @@
+format:
+  html:
+    theme: flatly
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: apa7

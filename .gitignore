@@ -47,3 +47,8 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+/.quarto/
+
+#Large raw data files 
+*.dat
