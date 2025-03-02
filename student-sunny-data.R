@@ -1,6 +1,6 @@
 #For data wrangling of my academic work I do 
 
-meps_path = "/Users/Sunny/Desktop/Skeleton Repo Project/h233 copy.dat"
+meps_path = "/Users/Sunny/Desktop/Skeleton Repo Project/data/h233 copy.dat"
 
 #install.packages("readr")
 library(readr)

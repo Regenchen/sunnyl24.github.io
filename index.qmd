@@ -13,12 +13,13 @@ format:
 # Introduction
 
 Welcome to my website. This site documents my life as a college student at UChicago. This is the most authentic and only chance you will get to learn about the real side of me. Get excited!
+There will be a brief overview of my [childhood](#sec-childhood), [familiy and friends](#sec-family-and-friends), academic passions (#sec-student-sunny), and other parts of my life (#sec-other). 
 
-# Childhood
+# Childhood {#sec-childhood}
 
 Not invited to analyze my childhood Freudian style, but it helps to understand what kind of person I am.
 
-# Family and friends
+# Family and friends {#sec-family-and-friends}
 
 As a huge extrovert, family and friends are an important part of my life. People listed on here are my rock and the source of energy in my life, so...it's a pretty important section.
 
@@ -42,7 +43,7 @@ knitr::include_graphics("images/high-school-friends.jpeg")
 knitr::include_graphics("images/MODA-fashion-show.jpeg")
 ```
 
-# Student Sunny
+# Student Sunny {#sec-student-sunny}
 
 I love school. Not that I'm a nerd. But intellectual stimulation is a core part of my life. It keeps me going. As Bill Gates once said, "I don't want my brain to stop working." Gates and I have this in common. My greatest fear is not being able to think. In true Descartes spirit, I think, therefore I exist or *cogito ergo sum*.
 
@@ -63,12 +64,29 @@ knitr::asis_output('[Department of Comparative Human Development](https://humdev
 ## Some of my research work with R
 For example, my research passion is the **social determinants of health**. I made a quick example of how my research would look like to showcase the type of career path I want to go into.  
 
+###Brief description and methodology of research project
+
+My research project involves utilizing a publicly available Medical Expenditure Panel Survey (MEPS) database to extract relevant variables and find the relationship between them through statistical analyses. For example, in the 2021 Full Year Consolidated file in MEPS, there are variables that measure the social determinants of health, perceived mental health, and demographic information such as sex and race. 
+
+Out of the numerous variables, I make a new database with only the variables of interest using R. In this mini research project I am able to showcase, I only included social determinants of health factors that measure an individual's social support. 
+
+Here are the variables I used:  "DUPERSID", "SDCHURCH", "SDCOMM", "SDCOMPAN", "SDFAMILY", "SDFRIENDS", "SDGETTGT", "MNHLTH31", "SEX", "RACETHX". 
+
+The name of "MNHTLH31" was changed to "Perceived_Mental_Health" to make it more intuitive in my dataframe, and I added a new column "Social_Support_Sum" that takes all SDOH variables and sums up the numbers into the column. The less the number, the less social support they have. 
+
+To explore more about data collection method and genreal decription of MEPS, click here: [2021 Consolidated Full Year File document](data/h233doc.pdf)
+
+To learn more about the variables, click here: [2021 Consolidated Full Year File codebook](data/h233cb.pdf)
+
+###Research using R
+
 Here is how my RStudio screen would look like.
 
 ```{r}
 #|label: source-Rscript
 
 source("student-sunny-data.R")
+
 ```
 
 ```{r}
@@ -133,14 +151,65 @@ h233_categorized.long %>%
 
 ```
 
+### Summary, statistics of samples
+
 ```{r}
-#|label:
-h233_categorized
+#| label: frequency-tables-sex
+#| #| tbl-cap: "Sex frequency table"
 
-
+sex_table <- as.data.frame(table(h233_categorized$SEX))
+colnames(sex_table) <- c("Sex", "Count")
+print(sex_table, row.names = FALSE)
 ```
 
-# Other passions and quirks
+```{r}
+#| label: frequency-tables-race
+#| #| tbl-cap: "Race frequency table"
+
+race_table <- as.data.frame(table(h233_categorized$RACETHX))
+colnames(race_table) <- c("Race", "Count")
+print(race_table, row.names = FALSE)
+
+h233_categorized
+```
+
+```{r}
+#|label: bar-plot
+
+# dplyr package has filter() function
+library(dplyr)
+
+# Define factor labels
+mental_health_labels <- c("1" = "Excellent", 
+                          "2" = "Very Good", 
+                          "3" = "Good", 
+                          "4" = "Fair", 
+                          "5" = "Poor")
+
+# Filter out invalid values and recode as factors
+h233_filtered <- h233_categorized %>%
+  filter(Perceived_Mental_Health %in% 1:5) %>%
+  mutate(Perceived_Mental_Health = factor(Perceived_Mental_Health, 
+                                          levels = 1:5, 
+                                          labels = mental_health_labels))
+
+# Load necessary package to make bar graph
+library(ggplot2)
+
+# Create the plot
+ggplot(h233_filtered, aes(x = Perceived_Mental_Health)) +
+  geom_bar() +
+  labs(title = "Frequency of Perceived Mental Health", 
+       x = "Perceived Mental Health Measure", 
+       y = "Count", 
+       caption = "MNHLTH31 variables used") +
+  theme_minimal()
+```
+From this bar graph, we can see that the distribution of perceived mental health in individuals is more positive than negative. 
+
+### Correlation statistics 
+
+# Other passions and quirks {#sec-other}
 
 Yogi, foodie, #trackstar, dog mom, neat freak, and more
 
