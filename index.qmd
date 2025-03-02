@@ -23,37 +23,119 @@ Not invited to analyze my childhood Freudian style, but it helps to understand w
 As a huge extrovert, family and friends are an important part of my life. People listed on here are my rock and the source of energy in my life, so...it's a pretty important section.
 
 ```{r, echo=FALSE, fig.cap="My parents and I at grad"}
-#|label: My parents
-knitr::include_graphics("images/momanddad.jpg")
+knitr::include_graphics("images/parents.jpg")
 ```
 
-```{r,echo=FALSE, fig.cap="My brother Ray and I at our favorite boba places in Irvine"}
-knitr::include_graphics("images/Ray.jpg")
+```{r,echo=FALSE, fig.cap="At our favorite boba place in Irvine with my brother Ray"}
+knitr::include_graphics("images/my-brother.JPG")
+```
+
+```{r, echo=FALSE, fig.cap="My dog Songyee"}
+knitr::include_graphics("images/my-dog.jpeg")
 ```
 
 ```{r, echo=FALSE, fig.cap="High school senior trip with my best friends"}
-knitr::include_graphics("images/highschoolfriends.jpeg")
+knitr::include_graphics("images/high-school-friends.jpeg")
 ```
 
-```{r, echo=FALSE, fig.cap="My friends and I at the MODA fashion show"}
-knitr::include_graphics("images/MODAfashionshow.jpeg")
+```{r, echo=FALSE, fig.cap="At the 2025 MODA Fashion show with my friends"}
+knitr::include_graphics("images/MODA-fashion-show.jpeg")
 ```
 
 # Student Sunny
 
-I love school. Not that I'm a nerd. Does that make me a nerd? Perhaps. But intellectual stimulation is a core part of my life. It keeps me going. As Bill Gates once said, "I don't want my brain to stop working." Gates and I have this in common. My greatest fear is not being able to think. In true Descartes spirit, I think, therefore I exist or *cogito ergo sum*.
+I love school. Not that I'm a nerd. But intellectual stimulation is a core part of my life. It keeps me going. As Bill Gates once said, "I don't want my brain to stop working." Gates and I have this in common. My greatest fear is not being able to think. In true Descartes spirit, I think, therefore I exist or *cogito ergo sum*.
 
+I go to the University of Chicago, and I am a pre-med student majoring in Biology and Comparative Human Development. 
+
+```{r, echo=FALSE, fig.cap="UChicago orientation"}
+knitr::include_graphics("images/uchicago-walk.jpeg")
+```
+
+Confused what a **comparative human development** major is? You can find out here: 
+```{r}
+#| label: A link to learn about my major
+#| echo: false 
+
+knitr::asis_output('[Department of Comparative Human Development](https://humdev.uchicago.edu/)')
+```
+
+## Some of my research work with R
 For example, my research passion is the **social determinants of health**. I made a quick example of how my research would look like to showcase the type of career path I want to go into.  
 
-```{r}
-#|label: Sourcing R script that has data 
+Here is how my RStudio screen would look like.
 
-source("Data Wrangling.R")
+```{r}
+#|label: source-Rscript
+
+source("student-sunny-data.R")
 ```
 
 ```{r}
-#|label: Summary statistics
+#| label: setup
+#| echo: false
 
+# Load necessary libraries
+
+library(tidyverse)
+library(scales) # squishing scales (and other outlier handling)
+library(psych) # common analyses and visualizations in psychology
+library(stats) # basic statistics
+library(lme4) # mixed models
+library(patchwork) # "stitch" together multiple plots
+library(kableExtra) # nice tables (and migraines)
+library(rempsyc) # imperfect APA tables
+library(flextable) # yet another APA table option
+```
+
+```{r}
+#| label: analysis-preferences
+#| include: false
+
+# Seed for random number generation
+set.seed(42)
+
+# Set global chunk options
+knitr::opts_chunk$set(
+  cache.extra = knitr::rand_seed,
+  fig.height = 6,
+	fig.width = 7,
+	message = FALSE,
+	warning = FALSE,
+	comment = ""
+  )
+```
+
+```{r}
+#| label: make-long-data 
+#| include: false 
+
+h233_categorized.long <- h233_categorized %>% 
+  pivot_longer(c(Perceived_Mental_Health, Social_Support_Sum), names_to = "ivanddv") 
+```
+
+```{r}
+#| label: apa-ready-table
+#| tbl-cap: "Summary statistics"
+
+# Produce the table as an APA formatted table with rempsyc
+
+h233_categorized.long %>% 
+  group_by(ivanddv) %>% 
+  summarize(mean = mean(value),
+         median = median(value),
+         sd = sd(value),
+         min = min(value),
+         max = max(value),
+         range = max-min,
+         range = diff(range(value))
+  ) %>% nice_table()
+
+```
+
+```{r}
+#|label:
+h233_categorized
 
 
 ```

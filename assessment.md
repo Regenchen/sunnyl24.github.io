@@ -53,7 +53,7 @@ Below each learning objective is a list of general expectations for meeting that
     3.  Does not have duplicate/redundant elements
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments: 
 
@@ -73,7 +73,7 @@ Below each learning objective is a list of general expectations for meeting that
     2.  .gitignore comprehensively excludes unnecessary, private, and very large files and is be commeted appropriately
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 

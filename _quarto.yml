@@ -1,7 +1,16 @@
+project:
+  type: website  # Defines this as a website project
+
+website:
+  title: "Learn more about Sunny Lee"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: bibliography.qmd
+        text: Bibliography
+
 format:
   html:
-    theme: flatly
-    toc: true
-    number-sections: true
-  pdf:
-    documentclass: apa7
+    theme: cosmo  # Customize the theme
+    css: styles.css  # Optional custom styling
