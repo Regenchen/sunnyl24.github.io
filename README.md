@@ -32,6 +32,14 @@ Created when rendering:
 [index.html](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/index.html)
 [index.tex](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/index.tex)
 
+### Other informational docs 
+
+For Natalie and Yuchen ❤️❤️❤️:
+[assessment.md](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/assessment.md)
+
+The document we are currently in. You can see the organization of the repository: 
+[README.md](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/README.md)
+
 ### R scripts 
 
 [student-sunny-data.R](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/student-sunny-data.R)
