@@ -17,7 +17,7 @@ CNetID:snylee
 
 Section: 2
 
-Mini-project title: Skeleton Repo Project
+Mini-project title: Creating an autobiography website
 
 Submission date: 03-03-2025
 
