@@ -200,7 +200,7 @@ Below each learning objective is a list of general expectations for meeting that
     2. Combines facets with other dynamic grouping aesthetics
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -212,7 +212,7 @@ Below each learning objective is a list of general expectations for meeting that
     4. Uses at least 1 static aesthetic (e.g., color, shape, size) that improves visual clarity without mapping to data
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -225,7 +225,7 @@ Below each learning objective is a list of general expectations for meeting that
     3. Presents results in narrative text, table, or plot
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -248,7 +248,7 @@ Below each learning objective is a list of general expectations for meeting that
     4. Uses dynamic inline R code to render data-dependent text
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
+        -   [X] Unique objective attempt
         -   [ ] Objective met
         -   Grader comments:
 
@@ -426,6 +426,11 @@ If you believe you have demonstrated any of the above skills sufficiently to cou
 
 <!-- Explanation of demonstrated unassessed objectives below this line -->
 
+6.  customize RStudio --> I customized my RStudio project, creating different folders, document types, and organizing the project file. 
+
+9.  create and use intermediate datasets --> I created h233_categorized, h233_filtered, and other intermediate datasets to create the desired plots and render data easier for data analysis. 
+
+11. explain and apply the “grammar of graphics” --> The "grammar" or step-by-step approach to creating visualizations that breaks down the plot into components and designates different functions to create the components. For creating the plots used in my website, I used the ggplot() function along with the different layers. 
 
 <!-- Explanation of demonstrated unassessed objectives above this line -->
 
@@ -435,26 +440,35 @@ If you have demonstrated any off-the-syllabus skills related to the course but n
 
 <!-- Explanation of demonstrated off-the-syllabus skills below this line -->
 
+1. I made a website with the .qmd by utilizing the .yml document and different yaml header. 
+
+2. I embedded pictures into my final product by calling the pictures I added to a folder in the repo. 
+
+3. I added an interactive tab function in the website, where the user can click through the different tabs to access different information. 
+
+4. I utilized a new platform called Github pages for this project. 
+
+5. I added hyperlinks to the website that takes the user to different websites.  
+
+6. I added a function that allows users to click through different sections of the document (similar to a hyperlink)
 
 <!-- Explanation of demonstrated off-the-syllabus skills above this line -->
 
 
 ## Reflection
 
+<!-- Reflection below this line -->
+
 Optionally, you may provide a brief reflection on your experience with this project. What did you learn? What would you do differently next time? What was the most challenging part of the project? What was the most rewarding? You do not have to answer these questions directly; they are just meant to help you think about your experience.
 
 Thoughtful reflections may earn engagement points.
 
 
-<!-- Reflection below this line -->
+One key improvement I would make is ensuring greater consistency in syntax and naming conventions. While I followed best practices from the R guide, my variable and function names were not always uniform. Moving forward, if I continue using R, I need to develop a structured naming system to enhance readability and maintainability.
 
+I also realized how challenging it is to modify foundational elements once the project is underway. If I change a variable name in the original R script, every subsequent line of code that references it must also be updated. This interdependency introduces multiple sources of error, reinforcing the need for a structured and strategic approach from the beginning.
 
-
-
-
-
-
-
+Additionally, this project helped solidify my understanding of different document types, such as .qmd, .R, and .gitignore. While I was familiar with these in theory, applying them in a real project clarified their roles and practical use. This hands-on experience has strengthened my ability to work with structured code and version control more effectively.
 
 <!-- Do not edit below this line. -->
 

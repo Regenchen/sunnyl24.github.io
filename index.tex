@@ -223,9 +223,9 @@ Welcome to my website. This site documents my life as a college student
 at UChicago. This is the most authentic and only chance you will get to
 learn about the real side of me. Get excited! There will be a brief
 overview of my \hyperref[sec-childhood]{childhood},
-\hyperref[sec-family-and-friends]{familiy and friends}, academic
-passions (\#sec-student-sunny), and other parts of my life
-(\#sec-other).
+\hyperref[sec-family-and-friends]{familiy and friends},
+\hyperref[sec-student-sunny]{academic passions}, and
+\hyperref[sec-other]{other parts of my life}.
 
 \section{Childhood}\label{sec-childhood}
 
@@ -322,7 +322,8 @@ For example, my research passion is the \textbf{social determinants of
 health}. I made a quick example of how my research would look like to
 showcase the type of career path I want to go into.
 
-\#\#\#Brief description and methodology of research project
+\subsubsection{Brief description and methodology of research
+project}\label{brief-description-and-methodology-of-research-project}
 
 My research project involves utilizing a publicly available Medical
 Expenditure Panel Survey (MEPS) database to extract relevant variables
@@ -353,7 +354,7 @@ File document}
 To learn more about the variables, click here:
 \href{data/h233cb.pdf}{2021 Consolidated Full Year File codebook}
 
-\#\#\#Research using R
+\subsubsection{Research using R}\label{research-using-r}
 
 Here is how my RStudio screen would look like.
 
@@ -361,6 +362,7 @@ Here is how my RStudio screen would look like.
 \begin{Highlighting}[]
 \CommentTok{\#|label: source{-}Rscript}
 
+\CommentTok{\# Source R script including data information}
 \FunctionTok{source}\NormalTok{(}\StringTok{"student{-}sunny{-}data.R"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -562,31 +564,6 @@ samples}\label{summary-statistics-of-samples}
  Non-Hispanic Black  4071
  Non-Hispanic Asian  1385
  Non-Hispanic Other  1059
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{h233\_categorized}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-# A tibble: 28,336 x 11
-   DUPERSID   SDCHURCH SDCOMM SDCOMPAN SDFAMILY SDFRIENDS SDGETTGT
-   <chr>         <dbl>  <dbl>    <dbl>    <dbl>     <dbl>    <dbl>
- 1 2320005101        0      4        3        3         4        0
- 2 2320005102       -1     -1       -1       -1        -1       -1
- 3 2320006101        0      2        3        2         2        6
- 4 2320006102        1      3        1        3         4        6
- 5 2320006103        0      1        1        1         3        3
- 6 2320012102        0      4        2        1         1      -15
- 7 2320013101        0      2        2        1         1        2
- 8 2320018101        6      1        3        1         2        0
- 9 2320018102        6      1        1        2         2        2
-10 2320018103        0      3        3        2         4        0
-# i 28,326 more rows
-# i 4 more variables: Perceived_Mental_Health <dbl>, SEX <fct>, RACETHX <fct>,
-#   Social_Support_Sum <dbl>
 \end{verbatim}
 
 \begin{Shaded}

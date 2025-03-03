@@ -7,6 +7,7 @@ It investigates the different aspects of my life. My family and friends, childho
 ## Repo organization 
 
 ### Folders 
+
 There are three folders in this repo. 
 1. images has every image I used in the website
 [images](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/images) 

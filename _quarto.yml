@@ -1,16 +1,17 @@
 project:
-  type: website  # Defines this as a website project
+  type: website
+  output-dir: docs  # GitHub Pages serves from 'docs' folder
 
 website:
-  title: "Learn more about Sunny Lee"
+  title: "My Research Project"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: bibliography.qmd
-        text: Bibliography
+  repo-url: "https://github.com/sunnyl24/sunnyl24.github.io"
+  repo-actions: [edit, issue]
 
 format:
   html:
-    theme: cosmo  # Customize the theme
-    css: styles.css  # Optional custom styling
+    theme: cosmo
+    toc: true

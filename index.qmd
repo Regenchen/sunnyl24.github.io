@@ -13,11 +13,72 @@ format:
 # Introduction
 
 Welcome to my website. This site documents my life as a college student at UChicago. This is the most authentic and only chance you will get to learn about the real side of me. Get excited!
-There will be a brief overview of my [childhood](#sec-childhood), [familiy and friends](#sec-family-and-friends), academic passions (#sec-student-sunny), and other parts of my life (#sec-other). 
+There will be a brief overview of my [childhood](#sec-childhood), [familiy and friends](#sec-family-and-friends), [academic passions](#sec-student-sunny), and [other parts of my life](#sec-other). 
 
 # Childhood {#sec-childhood}
 
 Not invited to analyze my childhood Freudian style, but it helps to understand what kind of person I am.
+
+::: {.panel-tabset}
+### My Early Years
+I was born in Seoul, South Korea. Then at 7, I moved to Rochester, Minnesota and went to elementary school there. 
+
+![Mom and me](images/baby.JPG)
+
+### Fun random shtuff 
+I was a kids model.
+
+![Kids model](images/kids-model.JPG)
+
+I loved to eat rice in an ice bowl with cheese and kimchi. 
+
+I wanted to be a Rainbow Loom youtuber.  
+
+When I was 6, I went on a family ski trip to Hokkaido. My mother hired a ski instructor so I can learn how to ski properly, but when I was left alone with the instructor, I started bawling my eyes out because I was scared to be with a male adult by myself. The poor instructor didn't know what to do and bought me churros as a nice gesture, but I hated churros and ended up crying even harder. **That's my only memory of the trip.**
+
+### Education
+Bamber Valley Elementary School (2011-2015) 
+
+Seoul International School (2016-2022)
+
+### Adventures
+Some of my favorite memories include taking road trips with my dad and brother!! 
+
+![Me and Ray at Lake Michigan](images/me-ray.JPG)
+
+We've been to 38 states. 
+
+:::
+
+## Timeline 
+```{r, echo=FALSE}
+childhood_data <- data.frame(
+  Year = c (2011, 2009, 2010, 2009, 2012, 2013, 2013, 2010),
+  Activity = c("Moved to US", "Started School", "Learned to Ski", "Became a Model", "Road Trips", "Wanted to be a YouTuber", "Won Mathletes", "Ate ice bowls everyday for breakfast"),
+  Category = c( "Life Event", "Education", "Adventure", "Fun", "Adventure", "Fun", "Education", "Fun"))
+
+```
+
+```{r, echo=FALSE}
+#| label: childhood-facet-grid
+#| fig-cap: "Memories from My Childhood"
+
+library(ggplot2)
+
+ggplot(childhood_data, aes(x = Category, y = Activity)) +
+  geom_point(size = 3, color = "maroon") +
+  facet_grid(. ~ Year) +  # Adjust spacing
+  labs(title = "Memories from My Childhood", x = "Category", y = "Activity") +
+  theme_light() +  # Clean theme for better readability
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16),  # Bold & centered title
+    axis.text.y = element_text(size = 12, face = "italic"),  # Adjust y-axis label size
+    axis.text.x = element_text(size = 11, angle = 75, hjust = 1),  # Rotate x-axis labels
+    strip.text = element_text(face = "bold", size = 12),  # Bold facet labels
+    strip.background = element_rect(fill = "purple", color = "black")  # Color facet strip
+  )
+```
+
 
 # Family and friends {#sec-family-and-friends}
 
@@ -64,7 +125,7 @@ knitr::asis_output('[Department of Comparative Human Development](https://humdev
 ## Some of my research work with R
 For example, my research passion is the **social determinants of health**. I made a quick example of how my research would look like to showcase the type of career path I want to go into.  
 
-###Brief description and methodology of research project
+### Brief description and methodology of research project
 
 My research project involves utilizing a publicly available Medical Expenditure Panel Survey (MEPS) database to extract relevant variables and find the relationship between them through statistical analyses. For example, in the 2021 Full Year Consolidated file in MEPS, there are variables that measure the social determinants of health, perceived mental health, and demographic information such as sex and race. 
 
@@ -78,20 +139,21 @@ To explore more about data collection method and genreal decription of MEPS, cli
 
 To learn more about the variables, click here: [2021 Consolidated Full Year File codebook](data/h233cb.pdf)
 
-###Research using R
+**Important**: *Although confusing, the scores are coded in such a way that lower perceived mental health score indicates better mental health and lower social support score indicates individual gets more help from their support system.* 
+
+### Research using R
 
 Here is how my RStudio screen would look like.
 
 ```{r}
 #|label: source-Rscript
 
+# Source R script including data information
 source("student-sunny-data.R")
-
 ```
 
-```{r}
+```{r, echo=FALSE}
 #| label: setup
-#| echo: false
 
 # Load necessary libraries
 
@@ -108,7 +170,6 @@ library(flextable) # yet another APA table option
 
 ```{r}
 #| label: analysis-preferences
-#| include: false
 
 # Seed for random number generation
 set.seed(42)
@@ -124,22 +185,25 @@ knitr::opts_chunk$set(
   )
 ```
 
-```{r}
+```{r, echo=FALSE}
 #| label: make-long-data 
-#| include: false 
+# Filter out Social Support Sum values below 0 because it means inapplicable or unanswered
+h233_cleaned <- h233_categorized %>%
+  filter(Perceived_Mental_Health>= 0) %>% 
+  filter(Social_Support_Sum>= 0)
 
-h233_categorized.long <- h233_categorized %>% 
-  pivot_longer(c(Perceived_Mental_Health, Social_Support_Sum), names_to = "ivanddv") 
+h233_cleaned.long <- h233_cleaned %>% 
+  pivot_longer(c(Perceived_Mental_Health, Social_Support_Sum), names_to = "Variables") 
 ```
 
 ```{r}
 #| label: apa-ready-table
-#| tbl-cap: "Summary statistics"
+#| fig-cap: Summary statistics table
 
 # Produce the table as an APA formatted table with rempsyc
 
-h233_categorized.long %>% 
-  group_by(ivanddv) %>% 
+h233_cleaned.long %>% 
+  group_by(Variables) %>% 
   summarize(mean = mean(value),
          median = median(value),
          sd = sd(value),
@@ -151,27 +215,32 @@ h233_categorized.long %>%
 
 ```
 
-### Summary, statistics of samples
+### Summary statistics of samples
 
 ```{r}
-#| label: frequency-tables-sex
-#| #| tbl-cap: "Sex frequency table"
+#| label: frequency-plot-sex
+#| fig-cap: "Distribution of Sex in the Study Sample"
 
-sex_table <- as.data.frame(table(h233_categorized$SEX))
-colnames(sex_table) <- c("Sex", "Count")
-print(sex_table, row.names = FALSE)
+
+ggplot(h233_cleaned, aes(x = SEX)) +
+  geom_bar(fill = "lightpink") +
+  labs(title = "Sex Frequency", x = "Sex", y = "Count") +
+  theme(plot.title = element_text(size = 16, face = "bold", hjust = 0.5))+
+  theme_minimal()
 ```
+There is a fairly equal representation of both categories. 
 
 ```{r}
-#| label: frequency-tables-race
-#| #| tbl-cap: "Race frequency table"
+#| label: frequency-plot-race
+#| fig-cap: "Distribution of Race in the Study Sample"
 
-race_table <- as.data.frame(table(h233_categorized$RACETHX))
-colnames(race_table) <- c("Race", "Count")
-print(race_table, row.names = FALSE)
-
-h233_categorized
+ggplot(h233_cleaned, aes(x = RACETHX)) +
+  geom_bar(fill = "lavender") +
+  labs(title = "Race Frequency", x = "Race", y = "Count") +
+  theme(plot.title = element_text(size = 16, face = "bold", hjust = 0.5))+
+  theme_minimal()
 ```
+Most of the sample size is Non-Hispanic White, but there is a good representation of each group. 
 
 ```{r}
 #|label: bar-plot
@@ -187,14 +256,11 @@ mental_health_labels <- c("1" = "Excellent",
                           "5" = "Poor")
 
 # Filter out invalid values and recode as factors
-h233_filtered <- h233_categorized %>%
+h233_filtered <- h233_cleaned %>%
   filter(Perceived_Mental_Health %in% 1:5) %>%
   mutate(Perceived_Mental_Health = factor(Perceived_Mental_Health, 
                                           levels = 1:5, 
                                           labels = mental_health_labels))
-
-# Load necessary package to make bar graph
-library(ggplot2)
 
 # Create the plot
 ggplot(h233_filtered, aes(x = Perceived_Mental_Health)) +
@@ -205,15 +271,222 @@ ggplot(h233_filtered, aes(x = Perceived_Mental_Health)) +
        caption = "MNHLTH31 variables used") +
   theme_minimal()
 ```
-From this bar graph, we can see that the distribution of perceived mental health in individuals is more positive than negative. 
+From this figure, we can see that the distribution of perceived mental health in individuals is more positive than negative. 
 
 ### Correlation statistics 
 
-# Other passions and quirks {#sec-other}
+```{r }
+#| label: pmh-ss-lm
 
-Yogi, foodie, #trackstar, dog mom, neat freak, and more
+# recall the correlation of mass and height from above
+pmh_ss_corr <- cor.test(h233_cleaned$Perceived_Mental_Health, h233_cleaned$Social_Support_Sum)
+pmh_ss_corr
+
+# model the effect of ss on pmh
+# the formula here is in the syntax [outcome var] ~ [predictor var]
+pmh_ss_lm <- lm(Perceived_Mental_Health ~ Social_Support_Sum, data = h233_cleaned)
+
+# the output of the model object itself doesn't have a lot of info
+# so you'll want to look at the summary() of the model
+summary_pmh_ss_lm <- summary(pmh_ss_lm)
+summary_pmh_ss_lm
+```
+### Results
+The correlation between **perceived mental health** and **social support** shows that there is some positive association: as social support increases, perceived mental health tends to improve. However, the effect is weak (*r* = `r round(pmh_ss_corr$estimate, 4)`).
+
+The linear model shows that for every additional unit of social support, perceived mental health increases by r 0.0186 units.However, while this effect is statistically significant (*p* = `r format.pval(summary_pmh_ss_lm$coefficients[2,4], digits = 3, eps = 1e-16)`)[^1], the overall model fit is very weak (*R²* = `r round(summary_pmh_ss_lm$r.squared, 4)`), meaning social support alone does not explain much of the variation in perceived mental health.
+
+The regression model also provides an intercept, which in this case is a good example of when the intercept does not have a meaningful interpretation: it suggests that when social support is zero, perceived mental health is `r round(summary_pmh_ss_lm$coefficients[1,1], 4)`. However, social support cannot truly be zero in a meaningful way in this dataset, making the intercept largely irrelevant to our interpretation.
+
+[^1]: Statistical significance was determined at p < 0.05.
+
+**Key Takeaways**: 
+
+```{r, echo=FALSE, results="asis"}
+list_items <- c(
+  "Social support is significantly associated with better perceived mental health, but the relationship is very weak *(r = 0.1266)*.",
+  "Social support has a statistically significant positive effect, but the effect size is extremely small *(β = 0.0186)*.",
+  "The model is very weak *(R² = 0.0160)*, meaning that social support alone does not strongly predict mental health—many other factors are involved.",
+  "The intercept *(1.9625)* represents perceived mental health when social support is zero, but its interpretation is not particularly meaningful, except for estimating average baseline mental health in the absence of support."
+)
+
+cat(paste0(seq_along(list_items), ". ", list_items, collapse = "\n"))
+```
 
 ```{r}
-#| label: New things
+#| label: fig-visualize-regression-pmh-ss
+#| warning: false
+#| message: false
+#| fig-cap: Visualize regression of perceived mental health by social support
+
+ggplot(h233_cleaned, aes(x = Social_Support_Sum, y = Perceived_Mental_Health)) +
+  geom_point(alpha = 0.5, color = "steelblue") +  # Unified point color
+  geom_smooth(method = "lm", se = FALSE, color = "darkred", linetype = "solid") +  # Single regression line
+  labs(
+    title = "Effect of Social Support on Perceived Mental Health",
+    subtitle = "Higher social support is associated with better perceived mental health",
+    x = "Social Support Score",
+    y = "Perceived Mental Health"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 18, face = "bold", hjust = 0.5),  # Bold & centered title
+    plot.subtitle = element_text(size = 14, hjust = 0.5, color = "gray30"),  # Subtitle for context
+    axis.title = element_text(size = 14, face = "bold"),  # Larger axis titles
+    axis.text = element_text(size = 12),  # Axis label size
+    legend.position = "none",  # Removes legend since no categorical colors
+    panel.grid.major = element_line(linetype = 'dashed', color = "gray80"),  # Dashed major grid lines
+    panel.grid.minor = element_blank()  # Remove minor grid lines
+  )
+```
+
+```{r}
+#|label: pmh-ss-lm_extended 
+
+# See if race or sex are predictors of mental health
+pmh_ss_lm_extended <- lm(Perceived_Mental_Health ~ Social_Support_Sum + SEX + RACETHX, data = h233_cleaned)
+
+summary_pmh_ss_lm_extended <- summary(pmh_ss_lm_extended)
+summary_pmh_ss_lm_extended
+
+# Does the effect of social support on mental health depend on sex or race
+pmh_ss_lm_interaction <- lm(Perceived_Mental_Health ~ Social_Support_Sum * SEX + Social_Support_Sum * RACETHX, data = h233_cleaned)
+
+summary_pmh_ss_lm_interaction <- summary(pmh_ss_lm_interaction)
+summary_pmh_ss_lm_interaction
+
+# Compare the models 
+cat("Original Model R²:", summary_pmh_ss_lm$r.squared, "\n")
+cat("Extended Model R² (with Sex & Race):", summary_pmh_ss_lm_extended$r.squared, "\n")
+cat("Interaction Model R²:", summary_pmh_ss_lm_interaction$r.squared, "\n")
 
 ```
+### Results with Sex and Race
+Adding sex and race to the model results in a small increase in explanatory power (R² = 0.0208), but the effect of social support remains weak (β= 0.0186, p<2.2e-16).
+
+#### Extended model: Adding Sex and Race as additional predictors 
+1. **Women** report higher perceived mental health than men (β= 0.0955, p= 6.30e-15).
+2. **Non-Hispanic Black** individuals have significantly higher PMH compared to the reference race (β= 0.0622, p= 0.0022).
+3. **Non-Hispanic Asian** individuals have significantly lower PMH (β= -0.1989, p= 4.04e-11).
+4. Other racial categories show no strong differences in perceived mental health.
+
+#### Interaction Model: Does social support affect groups differently? 
+
+The interaction model tests whether the effect of social support on perceived mental health varies by sex and race. The model fit slightly improves (R² = 0.0217), but the effect remains weak.
+
+1. Social support has a stronger positive effect for **women** than **men** (β= 0.0055, p= 0.0023).
+2. Among racial groups:
+  a. **Non-Hispanic Other** individuals experience a significantly stronger benefit from social support (β= 0.0152, p= 0.0017).
+  b. No significant interaction effects for most other racial groups.
+
+```{r}
+#| label: fig-visualize-regression-pmh-ss-extended
+#| warning: false
+#| message: false
+#| fig-cap: Visualize regression of perceived mental health by social support
+
+ggplot(h233_cleaned, aes(x = Social_Support_Sum, y = Perceived_Mental_Health, color = RACETHX, shape=SEX, linetype=SEX)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method = "lm", se = FALSE) +  # Regression line per race
+  labs(title = "Effect of Social Support on Perceived Mental Health",
+       x = "Social Support Score",
+       y = "Perceived Mental Health",
+       color = "Race", 
+       shape = "Sex",
+       linetype = "Sex") +  # Legend title
+  theme_minimal() +
+theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),  # Bold & centered title
+    axis.title = element_text(size = 14, face = "bold"),  # Larger axis titles
+    axis.text = element_text(size = 12),  # Axis label size
+    legend.title = element_text(face = "bold"),  # Bold legend title
+    panel.grid.major = element_line(linetype = 'dashed', color = "gray80"),  # Customize major grid lines
+    panel.grid.minor = element_blank()  # Remove minor grid lines
+  )
+```
+
+```{r}
+#| label: fig-visualize-regression-pmh-ss-extended-2
+#| warning: false
+#| message: false
+#| fig-cap: Visualize regression of perceived mental health by social support by race
+
+ggplot(h233_cleaned, aes(x = Social_Support_Sum, y = Perceived_Mental_Health, shape=SEX, linetype=SEX)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method = "lm", se = FALSE) +  # Regression line per race
+  labs(title = "Effect of Social Support on Perceived Mental Health",
+       x = "Social Support Score",
+       y = "Perceived Mental Health", 
+       shape = "Sex",
+       linetype = "Sex") +  # Legend title
+  facet_wrap(vars(RACETHX)) +  # Separate plots for Race
+  theme_minimal() +
+theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),  # Bold & centered title
+    axis.title = element_text(size = 14, face = "bold"),  # Larger axis titles
+    axis.text = element_text(size = 12),  # Axis label size
+    legend.title = element_text(face = "bold"),  # Bold legend title
+    panel.grid.major = element_line(linetype = 'dashed', color = "gray80"),  # Customize major grid lines
+    panel.grid.minor = element_blank()  # Remove minor grid lines
+  )
+```
+
+# Other passions and quirks {#sec-other}
+
+*Yogi🧘, foodie, #trackstar, dog mom, neat freak, and more*
+
+## RYT-200
+
+Ever since coming to college and being far from my family, I felt a huge drop in my support system. I was feeling isolated and needed a new hobby. Taking a yoga class as the physical education requirement my first semester in college, I felt like I found the perfect de-stressing mechanism. 
+
+Not only did I find peace in the movements, but I also found a sense of community in my yoga studio. 
+
+I got yoga certified in 2023, and yoga has been an integral part of my life since! 
+```{r, echo=FALSE, fig.cap="Yoga certificate"}
+knitr::include_graphics("images/yoga-certificate.jpg")
+```
+
+## Eat and Run
+
+I also fun and love to visit restaurants and coffee shops.  
+
+Here are links to my running playlist and Bite, a student organization on campus that writes food magazines and blogs. 
+```{r}
+#| label: A link to learn about my hobbies
+#| echo: false 
+
+knitr::asis_output('[Link to my running playlist](https://open.spotify.com/playlist/5UGB13wh6beLDxrdpkg5Pz?si=86b0913eeedf4855&pt=e62a9f432146f41ce66767d5aa236549)')
+
+knitr::asis_output('[Bite Magazine](https://uchicagobite.com/)')
+```
+
+## My dog Songyee
+
+Name: Songyee
+
+Birthday: April 18, 2023 
+
+Breed: Maltipoo 
+
+Fun fact: She loves veggies. 
+
+She's such a picky eater and refuses to eat kibbles. She is the biggest rebel and would bark when she doesn't get her way. She loves her puppucinos, walks, watching TV with the family, and napping with mom. 
+
+Aaaand...you already saw a picture of me and my dog earlier, but here are some more! 
+
+::: {.grid}
+![On a walk](images/songyee1.jpeg){.grid-item}
+![Taking a nap on my bed](images/songyee2.jpeg){.grid-item}
+![Got caught taking a nap](images/songyee3.JPG){.grid-item}
+![Got caught taking a nap](images/songyee4.jpeg){.grid-item}
+![Got caught taking a nap](images/songyee5.jpeg){.grid-item}
+![Got caught taking a nap](images/songyee6.JPG){.grid-item}
+![Got caught taking a nap](images/songyee7.jpeg){.grid-item}
+![Got caught taking a nap](images/songyee8.jpeg){.grid-item}
+![Got caught taking a nap](images/songyee9.jpeg){.grid-item}
+:::
+
+# That's it!
+
+Thank you for visiting my website 🤍💌💞
+
