@@ -1,8 +1,9 @@
 #sunnyl24.github.io
 
 ## What is this project?
+
 This project is a mini-project for my d2mr class. I am making a website through Github pages that allows users to learn about me. 
-It investigates the different aspects of my life. My family and friends, childhood, academic life, and personal life such as passions. 
+It investigates the different aspects of my life. My family and friends, childhood, academic life, and other non-academic passions. 
 
 ## Repo organization 
 
@@ -15,6 +16,9 @@ There are three folders in this repo.
 [index_files](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/index_files) 
 3. data has all the data necessary for explaining my current passion research project
 [data](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/data) 
+4. The docs folder got automatically made while rendering website
+[docs](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/docs) 
+
 
 ### Files to help render the website 
 
@@ -30,18 +34,48 @@ Created when rendering:
 
 ### R scripts 
 
+[student-sunny-data.R](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/student-sunny-data.R)
 R scripts help keep an organized final .qmd document that has relevant information for rendering a website. 
 I kept the data wrangling codes all in my R script, which allowed me to simply source the R script in my main markdown document. 
 
 ### git.ignore 
 
+[.gitignore](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/.gitignore)
 This file has files or materials that don't need to be tracked by git because they're too big or not needed anymore in my documents. 
 It helps improves performance by ignoring large files and maintains a clean, organized repo. 
 
 ## My website 
 
-Here is the website that this repo is used for: (LINK)
+Here is the website that this repo is used for: [Final Product Website](https://sunnyl24.github.io/)
 
-## Bibliography
+### Website structure 
 
-Check out the [Bibliography](bibliography.qmd) for references.
+#### Introduction
+
+Hyperlinks other sections, so you can more easily flip through.
+
+#### Childhood
+
+Click through the different tabs to see some fun facts about my earlier life, and see some baby pictures! 
+
+#### Family and friends 
+
+You can flip through pictures of my loved ones. 
+Mom, dad, brother, friends...
+
+#### Student Sunny 
+
+Run through of how my current reserach methodology looks like. It's not presentation of my actual research project, but it's a demo that shows what database I work with, and how my workflow is. 
+
+#### Other passions and quirks 
+
+More pictures, links, a photo gallery of my dog 
+
+#### That's it! 
+
+Just one concluding remark. 
+
+
+
+
+
