@@ -1,16 +1,3 @@
-project:
-  type: website
-  output-dir: docs  # GitHub Pages serves from 'docs' folder
-
-website:
-  title: "My Research Project"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-  repo-url: "https://github.com/sunnyl24/sunnyl24.github.io"
-  repo-actions: [edit, issue]
-
 format:
   html:
     theme: cosmo
