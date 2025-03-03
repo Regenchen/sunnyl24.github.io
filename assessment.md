@@ -19,9 +19,9 @@ Section: 2
 
 Mini-project title: Skeleton Repo Project
 
-Submission date: 
+Submission date: 03-03-2025
 
-Project GitHub subdirectory URL:
+Project GitHub subdirectory URL:https://github.com/sunnyl24/sunnyl24.github.io/tree/main
 
 URL or instructions to access additional materials, if needed:
 
@@ -32,7 +32,7 @@ URL or instructions to access additional materials, if needed:
     1. Direct collaborators (students who will be turning in a version of the same project) and their contributions:
     2. General support (students who helped you with debugging, conceptual understanding, or the like) and their contributions:
 2. Did you use LLMs or other AI models to generate text or code for this project? If so, which tools did you use and how did you use them? Remember in this class you *are* allowed (even encouraged) to use these tools for help with coding, but not for writing text. This can be very brief, just one or two sentences is fine unless you have more you'd like to add.
-    1. answer here N/A
+    1. I used chatgpt for some codes I was struggling to write, especially new interactive ones. 
 3. For off-the-menu projects only, did you complete the project as proposed? If not, what changed? N/A
     1. answer here or n/a
 
