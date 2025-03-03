@@ -10,14 +10,14 @@ It investigates the different aspects of my life. My family and friends, childho
 ### Folders 
 
 There are three folders in this repo. 
-1. images has every image I used in the website
+1. Every image I used in the website
 [images](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/images) 
-2. index_files has files necessary for the rendering of my website
+2. Files necessary for the rendering of my website
 [index_files](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/index_files) 
-3. data has all the data necessary for explaining my current passion research project
+3. All data necessary for explaining my current passion research project
 [data](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/data) 
-4. The docs folder got automatically made while rendering website
-[docs](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/docs) 
+4. This folder got automatically made while rendering website
+[_site](https://github.com/sunnyl24/sunnyl24.github.io/tree/main/_site) 
 
 
 ### Files to help render the website 
