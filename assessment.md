@@ -54,7 +54,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments: 
 
 2.  Maintain an informative and up-to-date README.md
@@ -63,9 +63,9 @@ Below each learning objective is a list of general expectations for meeting that
     2.  Outlines the repo structure with file tree or similar
 
         -   [ ] Objective attempt
-        -   [ ] Unique objective attempt
-        -   [ ] Objective met
-        -   Grader comments:
+        -   [X] Unique objective attempt
+        -   [X] Objective met
+        -   Grader comments: I added this.
 
 3.  Integrate a GitHub repo with an R studio project, including .gitignore file
 
@@ -74,7 +74,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 4.  Effectively use version control
@@ -84,7 +84,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 ### R programming
@@ -201,7 +201,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 16. Create publication-quality plots using `theme` and `labs` layers
@@ -213,7 +213,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 ### Data analysis
@@ -226,7 +226,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 18. Perform simple hypothesis testing analyses for multiple data types
@@ -249,7 +249,7 @@ Below each learning objective is a list of general expectations for meeting that
 
         -   [ ] Objective attempt
         -   [X] Unique objective attempt
-        -   [ ] Objective met
+        -   [X] Objective met
         -   Grader comments:
 
 ### BibTeX
@@ -474,11 +474,11 @@ Additionally, this project helped solidify my understanding of different documen
 
 ## Grader feedback
 
--   Grader:
--   Date:
--   Points toward unique objectives (up to 20):
--   Additional points (up to 20):
--   TA provisional engagement points (up to 10):
+-   Grader: Yuchen Jin
+-   Date: March 7, 2025
+-   Points toward unique objectives (up to 20): 8
+-   Additional points (up to 20): 9
+-   TA provisional engagement points (up to 10): 10
 -   Final approved engagement points (up to 10):
 -   Total points (up to 50):
 
@@ -486,6 +486,6 @@ Engagement points are awarded for going above and beyond the expectations of the
 
 TAs may recommend engagement points provisionally, but the instructor will make the final decision on engagement points.
 
-Additional comments: 
+Additional comments: Excellent work! And it's my pleasure to know you:)
 
 
